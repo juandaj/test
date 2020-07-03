@@ -2,7 +2,31 @@ import {cleanConsole, createAll} from './data';
 const companies = createAll();
 
 cleanConsole(4, companies);
-console.log('---- EXAMPLE 4 --- ', 'Put here your function');
+console.log('---- EXAMPLE 4 --- ', 'Solution');
+
+function exaMple4(companies) {
+  const tableUser = [];
+  let count = 0;
+  companies.forEach((company) => {// recorre company
+    company.users.forEach((user) => {// recorre users para encontrar los usuarios con car = true
+      tableUser.push(user);
+      tableUser[count].company = company.name;
+      count = count +1;
+    });
+  });
+  tableUser.sort(function(a, b) {// Reordena decrecientemente las companies
+    if (a.age < b.age) {
+      return 1;
+    }
+    if (a.age > b.age) {
+      return -1;
+    }
+    return 0;
+  });
+  console.log(tableUser);
+  return tableUser;
+}
+exaMple4(companies);
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL

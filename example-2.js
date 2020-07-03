@@ -2,22 +2,20 @@ import {cleanConsole, createAll} from './data';
 const companies = createAll();
 const hasCar = true; // Establece que solo los user con car = true se guarden
 cleanConsole(2, companies);
-console.log('---- EXAMPLE 2 --- ', 'Put here your function');
+console.log('---- EXAMPLE 2 --- ', 'Solution');
 
 function exaMple2(hasCar, companies) {
   console.log(hasCar, companies);
   let index = 0;
   companies.forEach((company) => {// recorre company
-    let index2 = 0;
+    const userCars = [];
     company.users.forEach((user) => {// recorre users para encontrar los usuarios con car = true
-      if (hasCar !== user.car) {
-        const i = company.users.indexOf( user );
-        if ( i !== -1 ) {
-          company.users.splice( i, 1 ); // si car = false, se elimina el usuario
-        }
+      if (hasCar == user.car) {
+        // si car = false, se elimina el usuario
+        userCars.push(user);
       }
-      index2 = index2 +1;
     });
+    companies[index].users = userCars; // se reasignan los cars = true
     index = index +1;
   });
   console.log(companies);
