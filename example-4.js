@@ -4,7 +4,7 @@ const companies = createAll();
 cleanConsole(4, companies);
 console.log('---- EXAMPLE 4 --- ', 'Solution');
 
-function exaMple4(companies) {
+export function exaMple4(companies) {
   const tableUser = [];
   let count = 0;
   companies.forEach((company) => {// recorre company

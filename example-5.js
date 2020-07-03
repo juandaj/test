@@ -1,8 +1,25 @@
 import {cleanConsole, createAll} from './data';
+import {exaMple4} from './example-4';
 const companies = createAll();
 
 cleanConsole(5, companies);
-console.log('---- EXAMPLE 5 --- ', 'Put here your function');
+console.log('---- EXAMPLE 5 --- ', 'Solution');
+
+function example5(companies) {
+  const generalData = exaMple4(companies);
+  const newData = [];
+  let average = 0;
+  generalData.forEach((user) => {
+    average = average + user.age;
+  });
+  newData.size = generalData.length;
+  newData.average = Math. round( average / generalData.length );
+  newData.hasCar = generalData.length;
+  newData.averageWithCar = Math. round( average / generalData.length );
+  console.log(newData);
+  return newData;
+}
+example5(companies);
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL
