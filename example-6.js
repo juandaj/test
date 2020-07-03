@@ -1,9 +1,23 @@
 import {cleanConsole, createAll} from './data';
+import {exaMple4} from './example-4';
 
 const companies = createAll();
 
 cleanConsole(6, companies);
-console.log('---- EXAMPLE 6 --- ', 'Put here your function');
+console.log('---- EXAMPLE 6 --- ', 'Solution');
+function example6(companies) {
+  const generalData = exaMple4(companies);
+  const newData = [];
+  generalData.forEach((user) => {
+    if (user.lastName !== '' || user.firstName !== '') {
+      const nameUnion = `${user.lastName+user.firstName+user.age}`;
+      newData[nameUnion] = user.car;
+    }
+  });
+  console.log(newData);
+  return newData;
+}
+example6(companies);
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL
