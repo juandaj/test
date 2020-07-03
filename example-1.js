@@ -4,36 +4,33 @@ const companies = createAll();
 cleanConsole(1, companies);
 console.log('---- EXAMPLE 1 --- ', 'first exercise solution');
 
-function exaMple1(companies) {
+export function exaMple1(companies) {
   let index = 0;
-  companies.forEach((company) => {
-    // console.log(company.name[0].toUpperCase() + company.name.slice(1), index);
+  companies.forEach((company) => {// recorre company para reemplazar primera letra de company.name
     companies[index].name = company.name[0].toUpperCase() + company.name.slice(1);
     let index2 = 0;
-    company.users.forEach((user) => {
-      if (user.firstName === undefined ) {
-        companies[index].users[index2].firstName = '';
-      } else {
+    company.users.forEach((user) => {// recorre users para reemplazar primera letra de users.firsName and users.Lastname
+      if (user.firstName === undefined || user.firstName === '') {
+        companies[index].users[index2].firstName = ''; // en caso de haber undefined reemplaza por string vacío
+      } else {// caso contrario solo reemplaza primer caracter
         companies[index].
             users[index2].
             firstName = companies[index].
                 users[index2].firstName[0].toUpperCase() + companies[index].
                 users[index2].firstName.slice(1);
       }
-      if (user.lastName === undefined) {
+      if (user.lastName === undefined || user.lastName === '') {// en caso de haber undefined reemplaza por string vacío
         companies[index].users[index2].lastName = '';
-      } else {
+      } else {// caso contrario solo reemplaza primer caracter
         companies[index].
             users[index2].
             lastName = companies[index].
                 users[index2].lastName[0].toUpperCase() + companies[index].
                 users[index2].lastName.slice(1);
       }
-      // companies[index].users[index2]
-      // user.firstName
       index2 = index2 +1;
     });
-    companies[index].users.sort(function(a, b) {
+    companies[index].users.sort(function(a, b) {// Reordena alfabeticamente por el nombre la lista de users
       if (a.firstName > b.firstName) {
         return 1;
       }
@@ -45,9 +42,7 @@ function exaMple1(companies) {
     index = index +1;
   });
 
-  // companies.users.sort();
-
-  companies.sort(function(a, b) {
+  companies.sort(function(a, b) {// Reordena decrecientemente las companies
     if (a.users.length < b.users.length) {
       return 1;
     }
@@ -57,11 +52,7 @@ function exaMple1(companies) {
     return 0;
   });
   console.log(companies);
-  /* companies.forEach(company => {
-    company.name.
-    console.log( company.name[0].toUpperCase() + company.name.slice(1));
-  });
-  console.log('hola mundo'); */
+  return companies;
 };
 
 exaMple1(companies);

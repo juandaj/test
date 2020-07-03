@@ -1,9 +1,40 @@
 import {cleanConsole, createAll} from './data';
-
+import {exaMple1} from './example-1';
 const companies = createAll();
 
 cleanConsole(3, companies);
 console.log('---- EXAMPLE 3 --- ', 'Put here your function');
+
+function exaMple2(companies) {
+  const companiesExample1 = exaMple1(companies);
+  let indicador = true; // indicador de validez de todos los campos
+  let count = 0; // cuenta las veces que un campo no es válido
+
+  companiesExample1.forEach((company) => {
+    if (company.name[0].toUpperCase() !== company.name[0]) {
+      count = count + 1; // para company.name
+    }
+    company.users.forEach((user) => {
+      if (user.firstName !== '' && user.firstName[0].toUpperCase() !== user.firstName[0]) {
+        count = count +1; // para user.firstName
+      }
+      if (user.firstName !== '' && user.firstName[0].toUpperCase() !== user.firstName[0]) {
+        count = count +1; // para user.lastName
+      }
+    });
+    console.log(count);
+  });
+
+  if (count > 0 ) {
+    indicador = false; // En caso de encontrar campos erroneos
+    console.log(`${'Los campos presentan '+count+' errores, estado: '}`, indicador);
+  } else {
+    indicador = true; // cuando los campos son válidos
+    console.log(`${'Los campos presentan '+count+' errores, estado: '}`, indicador);
+  }
+}
+
+exaMple2(companies);
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL
