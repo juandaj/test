@@ -5,7 +5,7 @@ const companies = createAll();
 cleanConsole(3, companies);
 console.log('---- EXAMPLE 3 --- ', 'Put here your function');
 
-function exaMple2(companies) {
+function exaMple3(companies) {
   const companiesExample1 = exaMple1(companies);
   let indicador = true; // indicador de validez de todos los campos
   let count = 0; // cuenta las veces que un campo no es válido
@@ -34,7 +34,7 @@ function exaMple2(companies) {
   }
 }
 
-exaMple2(companies);
+exaMple3(companies);
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL
